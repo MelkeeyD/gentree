@@ -62,7 +62,10 @@ class Tree
             ];
         }
         foreach ($relations as $name => $relation) {
-            $this->parents[$name] = array_merge($this->parents[$name] ?: [], $this->parents[$relation] ?: []);
+            $this->parents[$name] = array_merge(
+                $this->parents[$name] ?? [],
+                $this->parents[$relation] ?? []
+            );
         }
     }
 }
